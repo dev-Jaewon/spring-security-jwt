@@ -44,7 +44,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 List<?> rolesFromPlayload = payload.get("roles", ArrayList.class);
 
                 List<SimpleGrantedAuthority> roles = rolesFromPlayload
-                        .stream().map(v -> "ROLE_" + v)
+                        .stream().map(v -> v.toString())
                         .map(SimpleGrantedAuthority::new)
                         .collect(Collectors.toList());
 
